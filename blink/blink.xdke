@@ -1,0 +1,93 @@
+{
+  "project": {
+    "projectSettingsVersion": "2.0.0",
+    "initialAutoPluginCount": 0,
+    "currentBuildConfiguration": null,
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "iot-tab": {
+    "fileStatus": {
+      "README.md": {
+        "previousModTime": 1450498453000,
+        "modified": 1450498453000,
+        "seen": true,
+        "name": "README.md"
+      },
+      "blink.xdk": {
+        "previousModTime": 1450498453000,
+        "modified": 1450498453000,
+        "seen": true,
+        "name": "blink.xdk"
+      },
+      "blink.xdke": {
+        "previousModTime": 1450593496000,
+        "modified": 1450593496000,
+        "seen": true,
+        "name": "blink.xdke"
+      },
+      "main.js": {
+        "previousModTime": 1450594240000,
+        "modified": 1450594240000,
+        "seen": true,
+        "name": "main.js"
+      },
+      "package.json": {
+        "previousModTime": 1450498453000,
+        "modified": 1450498453000,
+        "seen": true,
+        "name": "package.json"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1450498453000,
+        "modified": 1450498453000,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      },
+      "speaker.js": {
+        "previousModTime": 1450594215000,
+        "modified": 1450594215000,
+        "seen": true,
+        "name": "speaker.js"
+      },
+      "wechatAudio.js": {
+        "previousModTime": 1450592215000,
+        "modified": 1450592215000,
+        "seen": true,
+        "name": "wechatAudio.js"
+      },
+      "MeLCD.js": {
+        "previousModTime": 1450529865000,
+        "modified": 1450529865000,
+        "seen": true,
+        "name": "MeLCD.js"
+      },
+      "bleUltrasonic.js": {
+        "previousModTime": 1450583176000,
+        "modified": 1450583176000,
+        "seen": true,
+        "name": "bleUltrasonic.js"
+      },
+      "socketUltrasonic.js": {
+        "previousModTime": 1450592281000,
+        "modified": 1450592281000,
+        "seen": true,
+        "name": "socketUltrasonic.js"
+      },
+      "weatherData.js": {
+        "previousModTime": 1450593432000,
+        "modified": 1450593432000,
+        "seen": true,
+        "name": "weatherData.js"
+      }
+    },
+    "boardFileStatus": {
+      "main.js": {
+        "previousModTime": 1450594243023
+      },
+      "speaker.js": {
+        "previousModTime": 1450594243023
+      }
+    }
+  }
+}
