@@ -9,7 +9,7 @@ Before-you-go is a device attached to your door handle; family members can save 
 This repo is the software part for this project. Written mostly in Javascript.
 
 ## A photo of the project
-
+![Project Photo](https://raw.githubusercontent.com/bigeyex/before-you-go/master/product-photo.jpg)
 
 ## How to Run
 You need an Intel edison development board and Intel XDK. The "blink" folder contains a XDK project.
