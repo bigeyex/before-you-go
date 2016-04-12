@@ -20,13 +20,14 @@ var mraa = require('mraa'); //require mraa
 var speaker = require('./speaker.js');
 var wechatAudio = require('./wechatAudio.js');
 //var bleUltrasonic = require('./bleUltrasonic.js');
-var socketUltrasonic = require('./socketUltrasonic.js');
+//var socketUltrasonic = require('./socketUltrasonic.js');
 var weatherData = require('./weatherData.js');
 var MeLCD = require('./MeLCD.js');
+var tts = require('./tts.js');
 
 console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to the Intel XDK console
 
-var touchSensorGPIO = new mraa.Gpio(3);
+var touchSensorGPIO = new mraa.Gpio(15);
 var lastPlayMessageTimestamp = 0;
 touchSensorGPIO.dir(mraa.DIR_IN);
 
@@ -41,8 +42,8 @@ console.log("init...");
 //
 //});
 //bleUltrasonic.init();
-socketUltrasonic.init();
-weatherData.init();
+//socketUltrasonic.init();
+weatherData.initWithInterval(10000);
 wechatAudio.init();
 
 function periodicActivity(){
@@ -54,18 +55,20 @@ function periodicActivity(){
     if(currentTimeStamp - lastPlayMessageTimestamp > 10000 && !speaker.getIsPlaying()){
         MeLCD.clear();
         MeLCD.print(0,0,1,32,"You have 1 message");
-        MeLCD.print(0,32,4,32,"Shen Zhen "+weatherData.lastResult);
-        MeLCD.print(0,64,10,32,"PM 2.5: 65");
-        MeLCD.print(0,128,2,32, wechatAudio.getLastWechatText());
+        MeLCD.print(0,32,4,32,"Shen Zhen " + weatherData.realtimeTemp() + " C");
+         MeLCD.print(0,64,4,32, weatherData.realtimeWeather());
+        MeLCD.print(0,96,10,32,"PM 2.5: " + weatherData.realtimePM25());
+        console.log(weatherData.realtimePM25());
+        console.log(weatherData.realtimeWeather());
+        MeLCD.print(0,160,2,32, wechatAudio.getLastWechatText());
         console.log('message: '+wechatAudio.getLastWechatText());
         
         wechatAudio.play(function(){
-            console.log("ultra result: "+socketUltrasonic.lastResult);
-            if(socketUltrasonic.getLastResult() == '1'){
-                speaker.playWav('stuff.wav');
-                console.log("has stuff...");
+            var textToSpeak = "今日气温"+weatherData.realtimeTemp()+"度，空气质量"+weatherData.realtimeAirQuality();
+            if(wechatAudio.getLastWechatText()){
+                textToSpeak += "。您有文字留言："+wechatAudio.getLastWechatText();
             }
-            speaker.playWav('weather.wav');
+            tts.speak(textToSpeak);
         });
         lastPlayMessageTimestamp = currentTimeStamp;
     }

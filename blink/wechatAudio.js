@@ -14,9 +14,9 @@ var getLastWechatText = function(){
 
 var init = function(){
     setInterval(function(){
-        request('http://YOUR_WECHAT_SERVER_HERE/wetext.txt', function(error, response, body) {
+        request('http://121.41.62.45/wechat/wetext.txt', function(error, response, body) {
             setLastWechatText(body);
-            console.log(lastWechatText);
+            console.log("wechatText:"+lastWechatText);
         });
     }, 5000);
 }
